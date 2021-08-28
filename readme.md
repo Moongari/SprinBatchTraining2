@@ -98,7 +98,17 @@ ajouter les dependances suivantes
  
 ### SPRING BATCH
 
-creation d'un projet Banque avec Sprinbatch
+Creation d'un projet Banque avec Spring batch
+Nous avons un fichier data.csv qui presente des données 
+id,AccountID,TranstactionDate,transactionType,amount
+540300,10025436,17/10/2018-09:44,D,10000.90
+
+Que fait ce traitement.
+
+1) il va d'abord lire le fichiers data.csv
+2) Ensuite, nous avons 2 ItemProcessor qui vont se charger de faire chacun un traitement particulier l'un va transformer la date contenu dans le fichier pour l'inserer dans la base H2
+l'autre va calculer le montant total du Credit et Debit , le resultat sera consultable via l'api Rest definit dans notre RestController 
+
 
 
 ### Configuration du fichier application.properties
