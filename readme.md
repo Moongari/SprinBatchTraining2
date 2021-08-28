@@ -130,7 +130,9 @@ spring.h2.console.enabled=true
 
 ### Creation d'un controller REST
 on execute notre JobExecution depuis une api Rest sur le local 
-localhost:8080/StartJob
+http://localhost:8080/StartJob
+On peut consulter le calcul effectué par le 2eme ItemProcessor via notre api
+http://localhost:8080/Analytics
 
 ### Dossier images pour visualiser l'arborescence de l'application
 un fichier data.csv est crée dans la racine du projet(Voir fichier application.properties)
