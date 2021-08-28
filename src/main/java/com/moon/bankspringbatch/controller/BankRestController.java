@@ -1,5 +1,6 @@
 package com.moon.bankspringbatch.controller;
 
+import com.moon.bankspringbatch.BankTransactionItemAnalyticsProcessor;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ public class BankRestController {
 
     @Autowired  private JobLauncher jobLauncher;
     @Autowired  private  Job job;
+    @Autowired BankTransactionItemAnalyticsProcessor analyticsProcessor;
+
 
     public  BankRestController(JobLauncher jobLauncher, Job job){
         this.job = job;
@@ -30,6 +33,15 @@ public class BankRestController {
             System.out.println("je suis en cours d'execution...");
         }
         return jobExecution.getStatus();
+    }
+
+    @GetMapping("/Analytics")
+    public Map<String, Double> Analytics(){
+        Map<String,Double> map = new HashMap<>();
+
+        map.put("total Credit :",analyticsProcessor.getTotalCredit() );
+        map.put("Total Debit :",analyticsProcessor.getTotalDebit());
+        return map;
     }
 
 }

@@ -65,12 +65,12 @@ public class SpringBatchConfig {
     // on definit ici des bean pour instancier les objets et on commente l'annotaton @Component des classes
     // BankTransactionProcessor(); et BankTransactionItemAnalyticsProcessor();
     @Bean
-    ItemProcessor<BankTransaction,BankTransaction> itemProcessor1(){
+    BankTransactionProcessor itemProcessor1(){
             return new BankTransactionProcessor();
     }
 
     @Bean
-    ItemProcessor<BankTransaction,BankTransaction> itemProcessor2(){
+    BankTransactionItemAnalyticsProcessor itemProcessor2(){
             return new BankTransactionItemAnalyticsProcessor();
     }
 
